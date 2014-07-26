@@ -1,0 +1,11 @@
+--- /usr/share/openstack-puppet/modules/apache/manifests/version.pp.ORIG	2014-07-22 04:54:34.611000000 -0400
++++ /usr/share/openstack-puppet/modules/apache/manifests/version.pp	2014-07-22 05:04:12.982000000 -0400
+@@ -5,7 +5,7 @@
+ class apache::version {
+   case $::osfamily {
+     'RedHat': {
+-      if ($::operatingsystem == 'Fedora' and $::operatingsystemrelease >= 18) or ($::operatingsystem != 'Fedora' and $::operatingsystemrelease >= 7) {
++      if ($::operatingsystem == 'Fedora' and $::operatingsystemrelease >= 18) or ($::operatingsystem != 'Fedora' and $::operatingsystemmajrelease >= 7) {
+         $default = 2.4
+       } else {
+         $default = 2.2

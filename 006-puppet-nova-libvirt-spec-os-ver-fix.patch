@@ -1,0 +1,20 @@
+--- /usr/share/openstack-puppet/modules/nova/spec/classes/nova_compute_libvirt_spec.rb.ORIG	2014-07-22 02:21:51.507000000 -0400
++++ /usr/share/openstack-puppet/modules/nova/spec/classes/nova_compute_libvirt_spec.rb	2014-07-22 02:26:23.051000000 -0400
+@@ -104,7 +104,7 @@
+   describe 'on rhel platforms' do
+     let :facts do
+       { :operatingsystem => 'RedHat', :osfamily => 'RedHat',
+-        :operatingsystemrelease => 6.5 }
++        :operatingsystemmajrelease => 6.5 }
+     end
+ 
+     describe 'with default parameters' do
+@@ -133,7 +133,7 @@
+ 
+       describe 'on rhel 7' do
+         let :facts do
+-          super().merge(:operatingsystemrelease => 7.0)
++          super().merge(:operatingsystemmajrelease => 7.0)
+         end
+ 
+         it { should contain_service('libvirt').with(

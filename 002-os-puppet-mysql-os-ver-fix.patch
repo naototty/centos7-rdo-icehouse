@@ -1,0 +1,13 @@
+--- /usr/share/openstack-puppet/modules/mysql/manifests/params.pp.ORIG	2014-07-22 00:50:17.258000000 -0400
++++ /usr/share/openstack-puppet/modules/mysql/manifests/params.pp	2014-07-22 00:53:23.116000000 -0400
+@@ -37,8 +37,8 @@
+             $provider = 'mysql'
+           }
+         }
+-        'RedHat': {
+-          if $::operatingsystemrelease >= 7 {
++        'RedHat','CentOS': {
++          if $::operatingsystemmajrelease >= 7 {
+             $provider = 'mariadb'
+           } else {
+             $provider = 'mysql'

@@ -1,0 +1,11 @@
+--- /usr/share/ruby/vendor_ruby/facter/operatingsystemrelease.rb.ORIG	2014-07-21 23:54:14.279000000 -0400
++++ /usr/share/ruby/vendor_ruby/facter/operatingsystemrelease.rb	2014-07-21 23:56:20.373000000 -0400
+@@ -41,6 +41,8 @@
+       line = release.split("\n").first.chomp
+       if match = /\(Rawhide\)$/.match(line)
+         "Rawhide"
++      elsif match = /release (\d\.\d)(\.(\d))/.match(line)
++        match[1]
+       elsif match = /release (\d[\d.]*)/.match(line)
+         match[1]
+       end
