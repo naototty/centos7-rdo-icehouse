@@ -33,7 +33,7 @@ part /boot --fstype="xfs" --ondisk=vda --size=500
 part pv.18 --fstype="lvmpv" --ondisk=vda --size=68435
 volgroup centos --pesize=4096 pv.18
 logvol swap  --fstype="swap" --size=6984 --name=swap --vgname=centos
-logvol   --fstype="None" --size=51200 --thinpool --name=pool00 --vgname=centos
+logvol none  --fstype="None" --size=51200 --thinpool --name=pool00 --vgname=centos
 logvol /  --fstype="xfs" --size=51200 --thin --poolname=pool00 --name=root --vgname=centos
 
 %packages
