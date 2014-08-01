@@ -62,7 +62,7 @@ best mini ISO image
   
     # packstack --allinone
 
-      or with other options
+  or with other options  
 
     # packstack --allinone --amqp-backend=rabbitmq --os-neutron-lbaas-install=y --os-heat-cloudwatch-install=y --os-heat-cfn-install=y
 
