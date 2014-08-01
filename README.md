@@ -14,12 +14,16 @@ best mini ISO image
 ## 2) yum update -y
   and better reboot
 
+    $ sudo yum install -y tmux wget patch
+    $ sudo yum update -y
+    $ sudo shutdown -r now
+
 ## 3) install rdo icehouse repository for EL7
   RDO http://openstack.redhat.com/Main_Page  
   RDO Quick Start  http://openstack.redhat.com/Quickstart  
   
     $ wget https://repos.fedorapeople.org/repos/openstack/openstack-icehouse/rdo-release-icehouse-4.noarch.rpm
-    $ sudo yum install rdo-release-icehouse-4.noarch.rpm
+    $ sudo yum install -y rdo-release-icehouse-4.noarch.rpm
 
 ## 4) install openstack-packstack packages
   run 
@@ -44,9 +48,9 @@ best mini ISO image
     # ls -l /root/.ssh/authorized_keys
     # wget https://raw.githubusercontent.com/naototty/centos7-rdo-icehouse/master/rdo-AIO-centos7-patch-for-bug-1117871.diff
     # ls -l rdo-AIO-centos7-patch-for-bug-1117871.diff
-    # yum install -y patch
     # cd /
     # cat /root/rdo-AIO-centos7-patch-for-bug-1117871.diff | patch -p1
+    # cd
 
 ## 6) before packstack procedure for mini CentOS7 install
   run;
@@ -57,4 +61,9 @@ best mini ISO image
   start packstack install "packstack --allinone" or other options.
   
     # packstack --allinone
+
+      or with other options
+
+    # packstack --allinone --amqp-backend=rabbitmq --os-neutron-lbaas-install=y --os-heat-cloudwatch-install=y --os-heat-cfn-install=y
+
 
