@@ -25,7 +25,7 @@ best mini ISO image
   run 
     $ sudo yum install -y openstack-packstack
 
-## 5) get patch file from this repository
+## 5) get patch file from this repository and patch
   this is work around things.  
   CentOS7 version is not 7.0 << 7.0.1406  
   bugzilla : https://bugzilla.redhat.com/show_bug.cgi?id=1117871  
@@ -39,7 +39,7 @@ best mini ISO image
   
     $ sudo su -
     # ssh-keygen -t rsa
-    # cat /root/.ssh/id_rsa.pub > /root/.ssh/authorized_key
+    # cat /root/.ssh/id_rsa.pub > /root/.ssh/authorized_keys
     # chmod 600 /root/.ssh/authorized_keys
     # ls -l /root/.ssh/authorized_keys
     # wget https://raw.githubusercontent.com/naototty/centos7-rdo-icehouse/master/rdo-AIO-centos7-patch-for-bug-1117871.diff
@@ -48,7 +48,12 @@ best mini ISO image
     # cd /
     # cat /root/rdo-AIO-centos7-patch-for-bug-1117871.diff | patch -p1
 
-## 6) go packstack
+## 6) before packstack procedure for mini CentOS7 install
+  run;
+  
+    # yum install -y iptables-services.x86_64  iptables-utils  system-config-firewall-base.noarch
+
+## 7) go packstack
   start packstack install "packstack --allinone" or other options.
   
     # packstack --allinone
